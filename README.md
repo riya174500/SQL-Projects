@@ -1,4 +1,4 @@
-# 🗄️ SQL Data Analysis & Database Design Project
+# 🗄️ SQL Data Analysis & Database Design
 
 *A hands-on SQL project focused on relational database design, data querying, and analytical problem-solving using real-world datasets.*
 
