@@ -126,3 +126,66 @@ A key focus of this project was learning how SQL can be used to transform large 
 ---
 
 ⭐ This project demonstrates my ability to design relational databases, write efficient SQL queries, analyse complex datasets, and transform raw data into meaningful business insights.
+
+---
+
+## 📸 Northwind DB
+
+-  📘 Sales Volume Breakdown
+The sales department wants to analyze how much of each product was ordered and at what price.
+➡️ Write a SQL query to retrieve all products with their prices and the quantity ordered for each product.
+```
+SELECT productname, price, SUM (quantity) AS TOTAL_QUANTITY
+FROM products P
+LEFT JOIN order_details OD
+ON P.productid = OD.productid
+GROUP BY 1,2
+ORDER BY 3 DESC;
+```
+
+-  📘 International Customers Targeting (USA & UK)
+The marketing team is preparing campaigns for customers in the USA and UK.
+➡️ Write a SQL query to retrieve all columns from the Customers table where the Country is either 'USA' or 'UK'.
+```
+SELECT * 
+FROM customers
+WHERE country IN ('USA', 'UK');
+```
+
+-  📘 Supply Chain Overview Report
+Your manager wants to see the product name, its category, and the name of its supplier all in one report.
+➡️ Write a SQL query to retrieve the Product Name, Category Name, and Supplier Name for all products
+```
+SELECT DISTINCT productname, categoryname, suppliername 
+FROM products P
+LEFT JOIN categories C
+ON P.categoryid = C.categoryid
+LEFT JOIN suppliers S
+ON P.supplierid = S.supplierid;
+```
+
+## 📸 World DB
+
+- 📘 Capital Cities Population Comparison: Scenario: A statistical analysis firm is examining population distributions between capital cities worldwide. You're tasked with comparing the populations of capital cities from different countries to identify trends and patterns in urban demographics.
+```
+SELECT C.Name AS Capital_City, C.Population AS Population, CO.Name AS Country 
+FROM city C 
+INNER JOIN country CO ON C.CountryCode = CO.Code 
+WHERE CO.Capital IN (SELECT DISTINCT capital FROM country) 
+ORDER BY 3 DESC;
+```
+
+-  📘 New Year Promotion: Featuring Cities with 'New : Scenario: In anticipation of the upcoming New Year, your travel agency is gearing up for a special promotion featuring cities with names including the word 'New'. You're tasked with swiftly compiling a list of all cities from around the world. This curated selection will be essential in creating promotional materials and enticing travellers with exciting destinations to kick off the New Year in style.
+```
+SELECT name AS CITY_NAME
+FROM city
+WHERE name ILIKE '%New%';
+```
+
+-  📘 Display Columns with Limit (Rows 31-40): Scenario: A market research firm requires detailed information on cities beyond the top rankings for a comprehensive analysis. You're tasked with providing data on cities ranked between 31st and 40th by population to ensure a thorough understanding of urban demographics.
+```
+SELECT name AS COUNTRY_NAME, population 
+FROM country 
+ORDER BY population DESC 
+LIMIT 10 OFFSET 30;
+```
