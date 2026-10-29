@@ -6,7 +6,7 @@
 
 ## 🚀 Overview
 
-This project showcases the SQL skills developed during my Data Technician Bootcamp through practical exercises involving database creation, schema design, data querying, and analysis.
+This project showcases my SQL skills through practical exercises involving database creation, schema design, data querying, and analysis.
 
 Working with both the **Northwind** and **World** databases, I explored how relational databases are structured, created table relationships, and wrote SQL queries to retrieve, filter, combine, and analyse data. The project strengthened my understanding of how SQL supports business reporting, operational analysis, and data-driven decision-making.
 
